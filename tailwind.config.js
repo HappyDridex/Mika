@@ -6,15 +6,17 @@ module.exports = {
     theme: {
         container: {
             center: true,
-            padding: "2.5rem",
+            padding: "200px",
         },
         colors: {
+            ...colors,
             dark: "#000000",
             darkMuted: "#272626",
             light: "#ffffff",
-            ...colors,
+            darkGray: "#363636",
+            gray: "#959595",
+            "gray-dark": "#2B2B2B",
         },
-        extend: {},
     },
     plugins: [],
 };

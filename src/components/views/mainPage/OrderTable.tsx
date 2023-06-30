@@ -10,10 +10,23 @@ const OrderTable = () => {
             <h2 className=" font-bold text-6xl">Заказ столов</h2>
             <p className=" font-normal text-5xl mt-6">Пишите нам</p>
 
-            <a href="https://wa.me/37493129492" target="_blank" className="mt-12 mx-auto">
-                <img className="w-[90px] h-auto" src={whatsAppLogo} alt="whatsapp" />
+            <a
+                href="https://wa.me/37493129492"
+                target="_blank"
+                className="mt-12 mx-auto"
+            >
+                <img
+                    className="w-[90px] h-auto"
+                    src={whatsAppLogo}
+                    alt="whatsapp"
+                />
             </a>
-            <ButtonRoundedBig title={"Как к нам проехать?"} color={"black"} onClick={openYandexMapsToPath} />
+            <ButtonRoundedBig
+                title={"Как к нам проехать?"}
+                color={"black"}
+                onClick={openYandexMapsToPath}
+                className="mt-12"
+            />
         </section>
     );
 };
