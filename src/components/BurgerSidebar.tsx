@@ -4,17 +4,27 @@ import { useLocation } from "react-router-dom";
 import { CSSTransition } from "react-transition-group";
 import IconCross from "./icons/IconCross";
 import IconBurgerMenu from "./icons/IconBurgerMenu";
+import { useTranslation } from "react-i18next";
 
-const navLinks = [
-    { title: "Меню ресторана", path: "/menu" },
-    { title: "Забронировать стол", path: "/" },
-    { title: "Как доехать?", path: "/" },
-];
+interface IProps {
+    className?: string;
+}
 
-const BurgerSidebar = () => {
+const BurgerSidebar = ({ className }: IProps) => {
     const [showSidebar, setShowSidebar] = useState(false);
     const { pathname } = useLocation();
     const sidebar = useRef<HTMLElement>(null);
+    const instagramLink = process.env.REACT_APP_INSTAGRAM_LINK;
+    const { t } = useTranslation();
+
+    const navLinks = [
+        {
+            title: `${pathname === "/" ? t("restaurant_menu") : t("main_page")}`,
+            path: `${pathname === "/" ? "/menu" : "/"}`,
+        },
+        { title: t("book_table"), path: "/booking" },
+        { title: t("how_to_get_to_us"), path: "/" },
+    ];
 
     const hideSidebar = useCallback((evt: PointerEvent): void => {
         evt.stopPropagation();
@@ -25,50 +35,82 @@ const BurgerSidebar = () => {
     }, []);
 
     useEffect(() => {
-        showSidebar ? document.addEventListener("pointerdown", hideSidebar) : document.removeEventListener("pointerdown", hideSidebar);
-    }, [showSidebar]);
+        showSidebar
+            ? document.addEventListener("pointerdown", hideSidebar)
+            : document.removeEventListener("pointerdown", hideSidebar);
+    }, [showSidebar, hideSidebar]);
 
     useEffect(() => {
         setShowSidebar(false);
     }, [pathname]);
 
     return (
-        <div>
-            <button className="text-white p-4 absolute z-20 right-[3%] top-[7%]" onClick={() => setShowSidebar(true)}>
-                <IconBurgerMenu />
+        <div className={`${className}`}>
+            <button className="p-4 text-white" onClick={() => setShowSidebar(true)}>
+                <IconBurgerMenu className="w-[45px] md:w-[75px]" />
             </button>
-            <CSSTransition in={showSidebar} timeout={200} mountOnEnter unmountOnExit classNames="sidebar-appear">
+            <CSSTransition
+                in={showSidebar}
+                timeout={300}
+                mountOnEnter
+                unmountOnExit
+                classNames="sidebar-appear"
+            >
                 <nav
                     ref={sidebar}
-                    className="fixed top-0 right-0 z-30 max-w-[45%] w-fit h-[100%] bg-white px-16 pt-24 pb-14 grid grid-cols-2 gap-3 overflow-hidden"
+                    className="fixed right-0 top-0 z-30 flex h-[100%] max-w-[75%] flex-col overflow-hidden bg-white px-8 pb-14 pt-24 md:px-16"
                 >
-                    <button className="absolute right-0 top-0 mt-2 mr-4 p-3" onClick={() => setShowSidebar(false)}>
+                    <button
+                        className="absolute right-0 top-0 mr-4 mt-2 p-3"
+                        onClick={() => setShowSidebar(false)}
+                    >
                         <IconCross className="text-black" />
                     </button>
-                    <div className="flex flex-col justify-self-start">
-                        <h3 className="mb-9 text-darkGray text-xl select-none">Навигация по сайту</h3>
-                        <ul className="grow">
-                            {navLinks.map((link) => {
-                                return (
-                                    <li key={link.title} className="text-black text-3xl mb-5">
-                                        <Link to={link.path}>{link.title}</Link>
+
+                    <div className="flex flex-1 flex-col flex-wrap items-start gap-6 md:flex-row md:flex-nowrap md:gap-10">
+                        <div className="flex flex-col">
+                            <h3 className="mb-4 select-none text-lg text-gray68 md:mb-9 xl:text-xl">
+                                {t("site_navigation")}
+                            </h3>
+                            <ul className="grow">
+                                {navLinks.map((link) => (
+                                    <li
+                                        key={link.title}
+                                        className="mb-2 text-xl text-black underline-offset-8 hover:underline md:mb-5 xl:text-3xl"
+                                    >
+                                        <Link
+                                            to={link.path}
+                                            className="block w-fit sm:w-max "
+                                        >
+                                            {link.title}
+                                        </Link>
                                     </li>
-                                );
-                            })}
-                        </ul>
-                        <footer>
-                            <h4 className="text-xl select-none">Связь с нами</h4>
-                            <a className="text-2xl block mt-2" href="#">
-                                mika-tun@gmail.com
+                                ))}
+                            </ul>
+                        </div>
+                        <div className="flex flex-col">
+                            <h3 className="mb-4 text-lg text-gray68 md:mb-9 xl:text-xl">
+                                {t("social_networks")}
+                            </h3>
+                            <a
+                                className="mb-2 block text-xl md:mb-4 xl:text-2xl"
+                                href={instagramLink}
+                                target="_blank"
+                                rel="noreferrer"
+                            >
+                                Instagram
                             </a>
-                        </footer>
+                        </div>
                     </div>
-                    <div className="flex flex-col justify-self-end">
-                        <h3 className="mb-9 text-darkGray text-xl">Навигация по сайту</h3>
-                        <a className="text-2xl" href="#">
-                            Instagram
+
+                    <footer>
+                        <h4 className="select-none text-lg text-gray68 xl:text-xl">
+                            {t("contact_us")}
+                        </h4>
+                        <a className="mt-2 block text-xl xl:text-2xl" href="/">
+                            mika-tun@gmail.com
                         </a>
-                    </div>
+                    </footer>
                 </nav>
             </CSSTransition>
         </div>

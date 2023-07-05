@@ -14,7 +14,7 @@ const InputField = ({ className, placeholder, onInput }: IProps) => {
                     onInput((evt.target as HTMLInputElement).value)
                 }
                 placeholder={placeholder}
-                className={`${className} w-full py-[19px] px-[40px] bg-transparent border-2 border-gray rounded-[50px] text-xl text-white placeholder:text-gray outline-none focus:border-white`}
+                className={`${className} w-full py-[12px] px-[40px] bg-transparent border border-gray68 rounded-[50px] text-xl text-white placeholder:text-gray68 outline-none focus:border-white`}
                 type="text"
             />
         </div>

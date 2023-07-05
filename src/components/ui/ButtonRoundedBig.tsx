@@ -1,4 +1,5 @@
 export type IButtonProps = {
+    tag?: "button" | "li";
     title: string;
     color: "black" | "white" | "transparent";
     type?: "button" | "submit" | "reset" | undefined;
@@ -9,7 +10,16 @@ export type IButtonProps = {
 };
 
 const ButtonRoundedBig = (props: IButtonProps) => {
-    const { title, color, type = "button", onClick, className, isActive, isDisabled } = props;
+    const {
+        tag = "button",
+        title,
+        color,
+        type = "button",
+        onClick,
+        className,
+        isActive,
+        isDisabled,
+    } = props;
 
     const buttonThemes = {
         white: `${isActive ? "bg-black text-light" : "bg-white text-dark"}`,
@@ -17,18 +27,29 @@ const ButtonRoundedBig = (props: IButtonProps) => {
         transparent: "bg-transparent text-light",
     };
 
-    return (
+    const buttonClasses =
+        "w-max cursor-pointer rounded-full border-2 border-solid border-white px-8 py-3 text-base font-medium transition-all duration-300 ease-out md:px-12 md:text-lg 2xl:text-xl";
+
+    return tag === "button" ? (
         <button
             onClick={onClick}
-            className={`${className} ${buttonThemes[color]} 
-            ${
+            className={`${
                 isDisabled ? "opacity-50" : "opacity-100"
-            } py-5 px-14 text-2xl rounded-full font-medium border-solid border-2 border-white transition-all duration-300 ease-out`}
+            } ${buttonClasses} ${className} ${buttonThemes[color]}`}
             disabled={isDisabled}
             type={type}
         >
             {title}
         </button>
+    ) : (
+        <li
+            onClick={onClick}
+            className={`${
+                isDisabled ? "opacity-50" : "opacity-100"
+            } ${buttonClasses} ${className} ${buttonThemes[color]}`}
+        >
+            {title}
+        </li>
     );
 };
 

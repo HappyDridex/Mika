@@ -5,7 +5,7 @@ interface IProps {
 }
 
 const DatepickerHour = ({ interval, isActive, onClick }: IProps) => {
-    const activeClass = isActive ? "bg-gray-dark" : "";
+    const activeClass = isActive ? "bg-gray68" : "";
     return (
         <li
             className={`${activeClass} flex px-[6px] py-3 w-fit h-fit text-white text-base rounded-lg cursor-pointer`}

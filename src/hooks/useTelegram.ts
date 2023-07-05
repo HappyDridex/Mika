@@ -12,7 +12,7 @@ export const useTelegram = () => {
             Комментарий: "comment",
         };
 
-        let message = "НОВАЯ ЗАЯВКА НА БРОНЬ";
+        let message = "⚡НОВАЯ БРОНЬ⚡";
         for (let key in orderRuLayout) {
             orderRuLayout[key] = formData[orderRuLayout[key]];
             message += `\n${key}: ${orderRuLayout[key]}`;

@@ -1,3 +1,4 @@
+import { Swiper, SwiperSlide } from "swiper/react";
 import { forwardRef, useEffect, useRef } from "react";
 import DatePicker from "react-datepicker";
 import { registerLocale, setDefaultLocale } from "react-datepicker";
@@ -6,7 +7,7 @@ import DatepickerHour from "./DatepickerHour";
 import { fromDateToDDMMYYYY } from "../../utils/date-convert";
 
 interface IProps {
-    date: Date;
+    date: Date | null;
     time: string;
     onDateChange(date: Date): void;
     onTimeChange(str: string): void;
@@ -38,11 +39,18 @@ const Datepicker = ({ className, date, time, onDateChange, onTimeChange }: IProp
 
     const InputButton = forwardRef(({ onClick }: any, ref: any) => (
         <button
-            className="w-full h-[60px] text-white text-xl text-start pl-10"
+            className={`${
+                date ? "text-white border border-white" : "text-gray68"
+            } w-full h-[53px]  text-xl text-start pl-10 rounded-3xl`}
             onClick={onClick}
             ref={ref}
+            type="button"
         >
-            {fromDateToDDMMYYYY(date, ".")} {time}
+            {`${
+                date
+                    ? `${fromDateToDDMMYYYY(date, ".") + ", " + time}`
+                    : "Выберите дату и время"
+            }`}
         </button>
     ));
 
@@ -57,20 +65,24 @@ const Datepicker = ({ className, date, time, onDateChange, onTimeChange }: IProp
                 onChange={onDateChange}
                 locale="ru"
                 closeOnScroll={false}
+                popperPlacement="auto"
                 customInput={<InputButton ref={ref} onClick={() => {}} />}
             >
-                <ul className="border-2 pb-4 border-transparent overflow-x-scroll gap-2 flex select-none">
-                    {timeIntervals.map((interval) => {
-                        return (
+                <Swiper
+                    className="border-2 border-transparent overflow-x-hidden gap-2 flex select-none"
+                    spaceBetween={10}
+                    slidesPerView={"auto"}
+                >
+                    {timeIntervals.map((interval) => (
+                        <SwiperSlide className="max-w-fit" key={interval[0]}>
                             <DatepickerHour
                                 onClick={onTimeChange}
-                                key={interval[0]}
                                 interval={interval}
                                 isActive={interval.join("-") === time}
                             />
-                        );
-                    })}
-                </ul>
+                        </SwiperSlide>
+                    ))}
+                </Swiper>
             </DatePicker>
         </div>
     );

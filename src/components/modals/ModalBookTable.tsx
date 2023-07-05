@@ -1,26 +1,45 @@
 import { useMemo, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useTelegram } from "../../hooks/useTelegram";
+import useEscapeKey from "../../hooks/useEscapeKey";
+import { fromDateToDDMMYYYY } from "../../utils/date-convert";
 import BackgroundWrapper from "./BackgroundWrapper";
 import InputField from "../ui/InputField";
 import ButtonRoundedBig from "../ui/ButtonRoundedBig";
 import Datepicker from "../ui/Datepicker";
-import { fromDateToDDMMYYYY } from "../../utils/date-convert";
+import ButtonRoundedSmall from "../ui/ButtonRoundedSmall";
+
+interface IModalBookTableForm {
+    name: string;
+    persons: string;
+    phone: string;
+    date: null | Date;
+    time: string;
+    comment: string;
+}
 
 const ModalBookTable = () => {
-    const initialForm = {
+    const initialForm: IModalBookTableForm = {
         name: "",
         persons: "",
         phone: "",
-        date: new Date(),
+        date: null,
         time: "",
         comment: "",
     };
 
     const [formData, setFormData] = useState(initialForm);
-    const submitIsDisabled = useMemo(() => {
-        return !formData.name || !formData.persons;
-    }, [formData]);
+    const navigate = useNavigate();
+    const closeModal = () => navigate("/");
+    const escapeKey = useEscapeKey(() => closeModal);
     const telegram = useTelegram();
+
+    const submitIsDisabled = useMemo(() => {
+        const formDataEntries = Object.entries(formData);
+        if (formDataEntries.some((field) => !field[1] && field[0] !== "comment")) {
+            return true;
+        } else return false;
+    }, [formData]);
 
     function handleInputText(text: string, key: keyof typeof initialForm) {
         setFormData({ ...formData, [key]: text });
@@ -30,20 +49,29 @@ const ModalBookTable = () => {
         setFormData({ ...formData, date });
     }
 
-    function onFormSubmit(evt: React.FormEvent) {
-        console.log("раз раз");
+    async function onFormSubmit(evt: React.FormEvent) {
+        if (!formData.date) return;
         evt.preventDefault();
-        telegram.sendForm({ ...formData, date: fromDateToDDMMYYYY(formData.date, ".") });
+        await telegram.sendForm({
+            ...formData,
+            date: fromDateToDDMMYYYY(formData.date, "."),
+        });
+        setFormData(initialForm);
     }
 
     return (
-        <BackgroundWrapper>
+        <BackgroundWrapper onClick={closeModal} className="px-[10%] md:px-0">
             <form
-                className="bg-gray-dark rounded-3xl py-[66px] px-[180px] h-fit mt-[30px]"
+                className="relative mt-[30px] h-fit w-full rounded-3xl bg-gray16 px-8 py-[36px] md:w-fit md:px-[180px]"
                 onSubmit={onFormSubmit}
+                onClick={(e) => e.stopPropagation()}
             >
-                <h2 className="text-center text-white text-4xl">Бронь стола</h2>
-                <div className="flex flex-col mt-[67px]">
+                <h2 className="text-center text-3xl text-white">Бронь стола</h2>
+                <ButtonRoundedSmall
+                    onClick={closeModal}
+                    className="absolute right-[16px] top-[24px]"
+                />
+                <div className="mt-[47px] flex flex-col">
                     <InputField
                         onInput={(text) => handleInputText(text, "name")}
                         placeholder="Ваше имя"
@@ -72,8 +100,8 @@ const ModalBookTable = () => {
                     />
                 </div>
                 <ButtonRoundedBig
-                    className="mt-[71px]"
-                    title="Забронировать стол"
+                    className="mx-auto mt-[31px] block"
+                    title="Отправить"
                     color={"white"}
                     isDisabled={submitIsDisabled}
                     type="submit"
