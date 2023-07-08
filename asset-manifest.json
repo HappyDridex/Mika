@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/Mika/static/css/main.9e9ca194.css",
-    "main.js": "/Mika/static/js/main.454d3451.js",
-    "static/media/main_preview.webm": "/Mika/static/media/main_preview.262a153a0ef184003aa8.webm",
-    "static/media/main_preview.mp4": "/Mika/static/media/main_preview.d0baa30d521e61dbf5b6.mp4",
-    "static/media/logo_mika_tun.svg": "/Mika/static/media/logo_mika_tun.76a7de0ddff23f6c4e5c2f9732ed648a.svg",
-    "static/media/whatsapp.svg": "/Mika/static/media/whatsapp.819c53931a2235a84cb2b72cd97d5479.svg",
-    "static/media/britain-flag.svg": "/Mika/static/media/britain-flag.d7b1523432155ebdc3a5f73706072269.svg",
-    "static/media/armenia-flag.svg": "/Mika/static/media/armenia-flag.4dc0fcb57479032e390d09a7f6c9f823.svg",
-    "static/media/russia-flag.svg": "/Mika/static/media/russia-flag.672cd8e3ea8e422fc5712dea6120333a.svg",
-    "index.html": "/Mika/index.html",
-    "static/media/getFetch.cjs": "/Mika/static/media/getFetch.40f37ddea2378391108f.cjs",
-    "main.9e9ca194.css.map": "/Mika/static/css/main.9e9ca194.css.map",
-    "main.454d3451.js.map": "/Mika/static/js/main.454d3451.js.map"
+    "main.css": "/mika/static/css/main.9e9ca194.css",
+    "main.js": "/mika/static/js/main.ed74c82d.js",
+    "static/media/main_preview.webm": "/mika/static/media/main_preview.262a153a0ef184003aa8.webm",
+    "static/media/main_preview.mp4": "/mika/static/media/main_preview.d0baa30d521e61dbf5b6.mp4",
+    "static/media/logo_mika_tun.svg": "/mika/static/media/logo_mika_tun.76a7de0ddff23f6c4e5c2f9732ed648a.svg",
+    "static/media/whatsapp.svg": "/mika/static/media/whatsapp.819c53931a2235a84cb2b72cd97d5479.svg",
+    "static/media/britain-flag.svg": "/mika/static/media/britain-flag.d7b1523432155ebdc3a5f73706072269.svg",
+    "static/media/armenia-flag.svg": "/mika/static/media/armenia-flag.4dc0fcb57479032e390d09a7f6c9f823.svg",
+    "static/media/russia-flag.svg": "/mika/static/media/russia-flag.672cd8e3ea8e422fc5712dea6120333a.svg",
+    "index.html": "/mika/index.html",
+    "static/media/getFetch.cjs": "/mika/static/media/getFetch.40f37ddea2378391108f.cjs",
+    "main.9e9ca194.css.map": "/mika/static/css/main.9e9ca194.css.map",
+    "main.ed74c82d.js.map": "/mika/static/js/main.ed74c82d.js.map"
   },
   "entrypoints": [
     "static/css/main.9e9ca194.css",
-    "static/js/main.454d3451.js"
+    "static/js/main.ed74c82d.js"
   ]
 }
