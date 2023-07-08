@@ -17,6 +17,7 @@ function App() {
                         <Route path="/:dish" element={<ModalDishCard />} />
                     </Route>
                     <Route path="menu" element={<Menu />}>
+                        <Route path="booking" element={<ModalBookTable />} />
                         <Route path=":dish" element={<ModalDishCard />} />
                     </Route>
                 </Route>

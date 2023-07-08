@@ -1,23 +1,23 @@
-import { useNavigate } from "react-router-dom";
 import ButtonRoundedBig from "../../ui/ButtonRoundedBig";
 import { useTranslation } from "react-i18next";
+import useNavigateWithSearchParams from "../../../hooks/useNavigateWithSearchParams";
 
 const MenuHeader = () => {
-    const navigate = useNavigate();
+    const navigateWithSearchParams = useNavigateWithSearchParams();
     const { t } = useTranslation();
     return (
         <div
             style={{ backgroundImage: `url(/images/top-menu-bg.png)` }}
-            className="bg-gradient-to-r from-cyan-500 to-blue-500 h-[70vh] md:h-screen bg-cover bg-no-repeat w-full flex flex-col items-center"
+            className="flex h-[70vh] w-full flex-col items-center bg-gradient-to-r from-cyan-500 to-blue-500 bg-cover bg-no-repeat md:h-screen"
         >
-            <h1 className="text-white text-4xl  xl:text-5xl text-center  mt-[153px]">
+            <h1 className="mt-[153px] text-center  text-4xl text-white  xl:text-5xl">
                 {t("restaurant_menu")}
             </h1>
             <ButtonRoundedBig
-                title={t("book_table")}
+                title={t("reserve_table")}
                 color={"transparent"}
                 className="mt-12"
-                onClick={() => navigate("/booking")}
+                onClick={() => navigateWithSearchParams("booking")}
             />
         </div>
     );

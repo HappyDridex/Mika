@@ -75,7 +75,7 @@ const DishesCategories = () => {
     }, []);
 
     return (
-        <div className="container mb-16">
+        <div className="container mb-8 md:mb-16">
             <Swiper spaceBetween={10} slidesPerView={"auto"}>
                 {buttonsOptions.map((button) => {
                     return (
@@ -85,7 +85,7 @@ const DishesCategories = () => {
                                 title={button.title}
                                 color={button.color}
                                 tag="li"
-                                className="my-[20px] mx-1 md:mx-2"
+                                className="mx-1 my-[20px] md:mx-2"
                                 onClick={() => {
                                     selectCategory(button.category);
                                 }}

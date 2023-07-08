@@ -5,6 +5,7 @@ import { CSSTransition } from "react-transition-group";
 import IconCross from "./icons/IconCross";
 import IconBurgerMenu from "./icons/IconBurgerMenu";
 import { useTranslation } from "react-i18next";
+import ButtonRoundedSmall from "./ui/ButtonRoundedSmall";
 
 interface IProps {
     className?: string;
@@ -22,7 +23,7 @@ const BurgerSidebar = ({ className }: IProps) => {
             title: `${pathname === "/" ? t("restaurant_menu") : t("main_page")}`,
             path: `${pathname === "/" ? "/menu" : "/"}`,
         },
-        { title: t("book_table"), path: "/booking" },
+        { title: t("reserve_table"), path: "/booking" },
         { title: t("how_to_get_to_us"), path: "/" },
     ];
 
@@ -60,12 +61,13 @@ const BurgerSidebar = ({ className }: IProps) => {
                     ref={sidebar}
                     className="fixed right-0 top-0 z-30 flex h-[100%] max-w-[75%] flex-col overflow-hidden bg-white px-8 pb-14 pt-24 md:px-16"
                 >
-                    <button
-                        className="absolute right-0 top-0 mr-4 mt-2 p-3"
+                    <ButtonRoundedSmall
+                        className="absolute right-0 top-0 mr-4 mt-4 p-3"
                         onClick={() => setShowSidebar(false)}
+                        color="transparent"
                     >
                         <IconCross className="text-black" />
-                    </button>
+                    </ButtonRoundedSmall>
 
                     <div className="flex flex-1 flex-col flex-wrap items-start gap-6 md:flex-row md:flex-nowrap md:gap-10">
                         <div className="flex flex-col">
@@ -109,6 +111,13 @@ const BurgerSidebar = ({ className }: IProps) => {
                         </h4>
                         <a className="mt-2 block text-xl xl:text-2xl" href="/">
                             mika-tun@gmail.com
+                        </a>
+                        <a
+                            className="mt-2 block text-xl xl:text-2xl"
+                            href="tel:+37493129492"
+                            target="_blank"
+                        >
+                            +374 93129492
                         </a>
                     </footer>
                 </nav>

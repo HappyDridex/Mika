@@ -3,8 +3,8 @@ import { useTranslation } from "react-i18next";
 const TastefulFlavours = () => {
     const { t } = useTranslation();
     return (
-        <section className="w-full shrink-0 pt-20 text-center">
-            <h2 className="container z-30 mx-auto w-full text-xl text-light md:text-3xl xl:text-6xl">
+        <section className="w-full shrink-0 pt-20 text-center md:pt-32">
+            <h2 className="container z-30 mx-auto w-full px-7 text-3xl font-medium text-light sm:px-3 md:text-4xl xl:text-6xl">
                 {t("tasteful_flavours")}
             </h2>
             <div className="relative flex justify-between">

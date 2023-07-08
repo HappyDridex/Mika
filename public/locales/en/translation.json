@@ -9,7 +9,7 @@
     "how_to_get_to_us": "How to get to us?",
     "site_navigation": "Navigating the Site",
     "restaurant_menu": "Restaurant Menu",
-    "book_table": "Reserve a Table",
+    "reserve_table": "Reserve a Table",
     "contact_us": "Contact us",
     "social_networks": "Social. Networks",
 
@@ -22,6 +22,14 @@
     "hot_dishes": "Hot Dishes",
     "cold_dishes": "Cold dishes",
     "fruit": "Fruit",
+
+    "table_reservation": "Table reservation",
+    "your_name": "Your name",
+    "phone_number": "Phone number",
+    "persons_amount": "Number of persons",
+    "choose_date_and_time": "Select date and time",
+    "comment": "Comment",
+    "send": " Send ",
 
     "dish_1": "Summer Salad",
     "dish_2": "Salad with sorrel",

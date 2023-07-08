@@ -5,7 +5,7 @@ const IconBurgerMenu = (props: IconProps) => {
     return (
         <i>
             <svg
-                className={`${className}`}
+                className={`${className} w-full`}
                 width="28"
                 height="28"
                 viewBox="0 0 28 28"

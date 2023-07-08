@@ -5,7 +5,14 @@
 * {
     font-family: "Playfair Display", serif;
 }
+html {
+    scroll-behavior: smooth;
+}
 
 svg {
     height: auto;
+}
+
+video::-webkit-media-controls {
+    display: none !important;
 }

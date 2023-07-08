@@ -8,21 +8,21 @@ const OrderTable = () => {
         window.open(process.env.REACT_APP_YANDEX_MAPS_LINK);
     };
     return (
-        <section className="relative">
-            <div className="container pt-[200px] pb-[300px] flex flex-col items-center text-center text-light">
-                <h2 className="font-bold text-2xl md:text-4xl xl:text-6xl">
+        <section className="relative mt-10 flex justify-between">
+            <div className="container absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 flex-col items-center text-center text-light ">
+                <h2 className="text-2xl font-bold md:text-4xl xl:text-6xl">
                     {t("table_reservations")}
                 </h2>
-                <p className="font-normal text-lg md:text-2xl xl:text-5xl mt-6">
+                <p className="mt-3 text-lg font-normal md:mt-6 md:text-2xl xl:text-5xl">
                     {t("write_us")}
                 </p>
                 <a
                     href="https://wa.me/37493129492"
                     target="_blank"
-                    className="mt-12 mx-auto"
                     rel="noreferrer"
+                    className="mx-auto mt-12 w-[50px] md:w-[86px]"
                 >
-                    <img className="w-[90px] h-auto" src={whatsAppLogo} alt="whatsapp" />
+                    <img className="h-auto w-[90px]" src={whatsAppLogo} alt="whatsapp" />
                 </a>
                 <ButtonRoundedBig
                     title={t("how_to_get_to_us")}
@@ -32,17 +32,17 @@ const OrderTable = () => {
                 />
             </div>
 
-            <div className="absolute left-0 top-1/2 -translate-y-1/2 -z-10 w-1/2 h-[50%] md:h-[80%] max-w-[600px]">
+            <div className="h-auto w-1/2 md:w-1/3">
                 <img
-                    className="w-full h-full object-cover"
+                    className="h-full w-full object-cover"
                     src="/images/ice-cream-left.png"
                     alt="картинка"
                 />
             </div>
 
-            <div className="absolute right-0 top-1/2 -translate-y-1/2 -z-10 w-2/5 h-[50%] md:h-[70%] max-w-[500px]">
+            <div className=" h-auto w-1/2 md:w-1/3">
                 <img
-                    className="w-full h-full object-cover"
+                    className="h-full w-full object-cover"
                     src="/images/ice-cream-right.png"
                     alt="картинка"
                 />

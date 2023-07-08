@@ -28,7 +28,7 @@ const ButtonRoundedBig = (props: IButtonProps) => {
     };
 
     const buttonClasses =
-        "w-max cursor-pointer rounded-full border-2 border-solid border-white px-8 py-3 text-base font-medium transition-all duration-300 ease-out md:px-12 md:text-lg 2xl:text-xl";
+        "w-max cursor-pointer rounded-full border-2 border-solid border-white px-6 md:px-8 py-[10px] md:py-3 text-base font-medium transition-all duration-300 ease-out md:px-12 md:text-lg 2xl:text-xl";
 
     return tag === "button" ? (
         <button

@@ -10,11 +10,9 @@ const InputField = ({ className, placeholder, onInput }: IProps) => {
     return (
         <div>
             <input
-                onInput={(evt) =>
-                    onInput((evt.target as HTMLInputElement).value)
-                }
+                onInput={(evt) => onInput((evt.target as HTMLInputElement).value)}
                 placeholder={placeholder}
-                className={`${className} w-full py-[12px] px-[40px] bg-transparent border border-gray68 rounded-[50px] text-xl text-white placeholder:text-gray68 outline-none focus:border-white`}
+                className={`${className} w-full rounded-full border border-gray68 bg-transparent px-4 py-[8px] text-base text-white outline-none placeholder:text-gray68 focus:border-white md:px-[40px] md:py-[12px] md:text-xl`}
                 type="text"
             />
         </div>

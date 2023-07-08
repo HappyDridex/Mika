@@ -49,12 +49,12 @@ const ModalDishCard = () => {
                 </div>
 
                 <div className="relative flex w-full shrink-0 flex-col bg-gray16 p-6 pr-12 md:w-[55%]">
-                    <h3 className="mt-5 text-xl text-white md:text-2xl xl:text-4xl">
+                    <h3 className="mt-1 text-xl text-white md:mt-5 md:text-2xl xl:text-4xl">
                         {selectedDish?.name}
                     </h3>
-                    <p className="mt-5 text-base text-white md:text-lg"></p>
+                    <p className="mt-1 text-base text-white md:mt-5 md:text-lg"></p>
                     <div className="flex-1">
-                        <span className="mt-5 block w-fit rounded-[30px] bg-gray2B px-3 py-3 text-xl md:rounded-[54px] md:px-7 xl:text-2xl">
+                        <span className="mt-2 block w-fit rounded-[20px] bg-gray2B px-3 py-1 text-lg md:mt-5 md:rounded-[54px] md:px-7 md:py-3 xl:text-2xl">
                             {selectedDish?.price}
                         </span>
                     </div>
@@ -68,7 +68,7 @@ const ModalDishCard = () => {
                     </div>
                     <ButtonRoundedBig
                         color="transparent"
-                        title={t("book_table")}
+                        title={t("reserve_table")}
                         className="mb-4 mr-12 mt-10 w-fit"
                         onClick={() => navigate("/booking")}
                     />

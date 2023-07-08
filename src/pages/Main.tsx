@@ -1,9 +1,9 @@
 import { createPortal } from "react-dom";
+import { Outlet } from "react-router-dom";
 import DishesSlider from "../components/views/MainPage/DishesSlider";
 import OrderTable from "../components/views/MainPage/OrderTable";
 import VideoPreview from "../components/views/MainPage/VideoPreview";
 import TastefulFlavours from "../components/views/MainPage/TastefulFlavours";
-import { Outlet } from "react-router-dom";
 
 const Main = () => {
     return (

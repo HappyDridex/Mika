@@ -1,4 +1,4 @@
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import useDishes from "../../../hooks/useDishes";
@@ -9,12 +9,11 @@ const DishesSlider = () => {
     const navigate = useNavigate();
     const { t } = useTranslation();
     const dishes = useDishes();
-    const params = useParams();
 
     return (
-        <section className="container mt-5 px-[10%] sm:px-[5%] lg:mt-10">
+        <section className="container px-[10%] pt-12 sm:px-[5%] lg:pt-20 xl:px-[10%]">
             <div className="flex items-center justify-between text-light">
-                <h2 className="text-xl font-bold md:text-3xl xl:text-6xl">
+                <h2 className="text-3xl font-bold md:text-4xl xl:text-6xl">
                     {t("fresh_menu")}
                 </h2>
                 <Link
@@ -27,7 +26,7 @@ const DishesSlider = () => {
                     <IconArrowDown className="-rotate-90" />
                 </button>
             </div>
-            <div className="mt-12 grid select-none grid-cols-1 grid-rows-2 gap-6 sm:grid-cols-2 xl:grid-cols-3 xl:gap-9">
+            <div className="mt-7 grid select-none grid-cols-1 grid-rows-2 gap-9 sm:grid-cols-2 md:mt-12 xl:grid-cols-3 xl:grid-rows-1 xl:gap-7">
                 {dishes
                     .filter((dish) => dish.new)
                     .map((dish) => {

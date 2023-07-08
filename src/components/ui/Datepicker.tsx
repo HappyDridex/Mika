@@ -1,8 +1,10 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { forwardRef, useEffect, useRef } from "react";
 import DatePicker from "react-datepicker";
-import { registerLocale, setDefaultLocale } from "react-datepicker";
+import { useTranslation } from "react-i18next";
 import ru from "date-fns/locale/ru";
+import en from "date-fns/locale/en-US";
+import { registerLocale, setDefaultLocale } from "react-datepicker";
 import DatepickerHour from "./DatepickerHour";
 import { fromDateToDDMMYYYY } from "../../utils/date-convert";
 
@@ -16,8 +18,9 @@ interface IProps {
 
 const Datepicker = ({ className, date, time, onDateChange, onTimeChange }: IProps) => {
     registerLocale("ru", ru);
+    registerLocale("en-US", en);
     setDefaultLocale("ru");
-
+    const { t } = useTranslation();
     const timeIntervals: [string, string][] = [
         ["09:00", "09:30"],
         ["10:00", "10:30"],
@@ -34,14 +37,13 @@ const Datepicker = ({ className, date, time, onDateChange, onTimeChange }: IProp
         ["21:00", "21:30"],
         ["22:00", "22:30"],
     ];
-
     const ref = useRef(null);
 
     const InputButton = forwardRef(({ onClick }: any, ref: any) => (
         <button
             className={`${
-                date ? "text-white border border-white" : "text-gray68"
-            } w-full h-[53px]  text-xl text-start pl-10 rounded-3xl`}
+                date ? "border border-white text-white" : "text-gray68"
+            } h-[41px] w-max rounded-3xl px-4 text-start text-base md:h-[53px] md:px-10 md:text-xl`}
             onClick={onClick}
             ref={ref}
             type="button"
@@ -49,7 +51,7 @@ const Datepicker = ({ className, date, time, onDateChange, onTimeChange }: IProp
             {`${
                 date
                     ? `${fromDateToDDMMYYYY(date, ".") + ", " + time}`
-                    : "Выберите дату и время"
+                    : t("choose_date_and_time")
             }`}
         </button>
     ));
@@ -69,7 +71,7 @@ const Datepicker = ({ className, date, time, onDateChange, onTimeChange }: IProp
                 customInput={<InputButton ref={ref} onClick={() => {}} />}
             >
                 <Swiper
-                    className="border-2 border-transparent overflow-x-hidden gap-2 flex select-none"
+                    className="flex select-none gap-2 overflow-x-hidden border-2 border-transparent"
                     spaceBetween={10}
                     slidesPerView={"auto"}
                 >

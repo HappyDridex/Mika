@@ -1,5 +1,3 @@
-import BackgroundWrapper from "../modals/BackgroundWrapper";
-
 interface IDishCardProps {
     name: string;
     price: string;
@@ -15,7 +13,7 @@ const DishCard = (props: IDishCardProps) => {
             className="flex h-full w-full cursor-pointer flex-col justify-between gap-3"
         >
             <div
-                className="h-0 shrink-0 rounded-3xl bg-cover bg-no-repeat pb-[77%]"
+                className="h-0 shrink-0 rounded-xl bg-cover bg-no-repeat pb-[77%] md:rounded-3xl"
                 style={{ backgroundImage: `url("/images/dishes/${id}.JPG")` }}
             ></div>
             <div className="flex h-full flex-col justify-between">

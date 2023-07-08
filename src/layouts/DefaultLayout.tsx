@@ -1,6 +1,7 @@
 import { Outlet } from "react-router-dom";
 import BurgerSidebar from "../components/BurgerSidebar";
 import SwitchLanguageDropDown from "../components/ui/SwitchLanguageDropDown";
+import MainPageFooter from "../components/views/MainPage/MainPageFooter";
 
 const DefaultLayout = () => {
     return (
@@ -10,6 +11,7 @@ const DefaultLayout = () => {
                 <BurgerSidebar className="mt-0" />
             </div>
             <Outlet />
+            <MainPageFooter />
         </>
     );
 };

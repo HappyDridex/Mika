@@ -9,7 +9,7 @@
     "how_to_get_to_us": "Ինչպես հասնել մեզ:",
     "site_navigation": "Կայքի Նավիգացիա",
     "restaurant_menu": "Ռեստորանի մենյու",
-    "book_table": "Սեղան պատվիրել",
+    "reserve_table": "Սեղան պատվիրել",
     "contact_us": "Կապվեք մեզ հետ",
     "social_networks": "Սոց. ցանցեր",
 
@@ -22,6 +22,14 @@
     "hot_dishes": "Տաք ուտեստներ",
     "cold_dishes": "Սառը նախուտեստներ",
     "fruit": "Մրգեր",
+
+    "table_reservation": "Սեղանի ամրագրում",
+    "your_name": "Ձեր անունը",
+    "phone_number": "Հեռախոսահամարը",
+    "persons_amount": "Անձանց քանակը",
+    "choose_date_and_time": "Ընտրեք ամսաթիվը և ժամանակը",
+    "comment": "Մեկնաբանություն",
+    "send": "Ուղարկեք",
 
     "dish_1": "Աղցան Ամառային",
     "dish_2": "Աղցան ավելուկով ",
