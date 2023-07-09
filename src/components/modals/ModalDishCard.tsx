@@ -34,24 +34,15 @@ const ModalDishCard = () => {
                 className="relative mt-[5%] flex w-3/4 flex-col overflow-hidden rounded-3xl text-white md:flex-row"
                 onClick={(e) => e.stopPropagation()}
             >
-                <ButtonRoundedSmall
-                    className="absolute right-[15px] top-[15px] z-50"
-                    onClick={closeModal}
-                >
+                <ButtonRoundedSmall className="absolute right-[15px] top-[15px] z-50" onClick={closeModal}>
                     <IconCross className="w-[16px]" />
                 </ButtonRoundedSmall>
                 <div className="h-auto w-full md:w-[45%]">
-                    <img
-                        className="h-full w-full object-cover"
-                        src={`/images/dishes/${selectedDish?.id}.JPG`}
-                        alt="Блюдо"
-                    />
+                    <img className="h-full w-full object-cover" src={`/images/dishes/${selectedDish?.id}.JPG`} alt="Блюдо" />
                 </div>
 
                 <div className="relative flex w-full shrink-0 flex-col bg-gray16 p-6 pr-12 md:w-[55%]">
-                    <h3 className="mt-1 text-xl text-white md:mt-5 md:text-2xl xl:text-4xl">
-                        {selectedDish?.name}
-                    </h3>
+                    <h3 className="mt-1 text-xl text-white md:mt-5 md:text-2xl xl:text-4xl">{selectedDish?.name}</h3>
                     <p className="mt-1 text-base text-white md:mt-5 md:text-lg"></p>
                     <div className="flex-1">
                         <span className="mt-2 block w-fit rounded-[20px] bg-gray2B px-3 py-1 text-lg md:mt-5 md:rounded-[54px] md:px-7 md:py-3 xl:text-2xl">

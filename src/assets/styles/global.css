@@ -10,6 +10,7 @@ html {
 }
 
 svg {
+    display: flex;
     height: auto;
 }
 
