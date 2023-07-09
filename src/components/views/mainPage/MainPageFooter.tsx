@@ -7,7 +7,7 @@ const MainPageFooter = () => {
     const { t } = useTranslation();
 
     return (
-        <footer className="mt-8 flex flex-col items-center p-5 pt-0 text-white md:p-10 md:pt-0">
+        <footer className="mt-10 flex flex-col items-center p-5 text-white md:mt-0 md:p-10">
             <div className="flex flex-col items-center">
                 <div className="w-1/2 md:w-1/3">
                     <img src={logoMikaTun} alt="Logo" />

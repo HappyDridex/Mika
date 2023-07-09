@@ -12,3 +12,21 @@
     transition: transform linear 300ms;
     transform: translateX(100%);
 }
+
+.from-transparent-enter {
+    opacity: 0;
+}
+
+.from-transparent-enter-active {
+    transition: opacity 200ms ease-in;
+    opacity: 1;
+}
+
+.from-transparent-exit {
+    opacity: 1;
+}
+
+.from-transparent-exit-active {
+    opacity: 0;
+    transition: opacity 200ms ease-out;
+}

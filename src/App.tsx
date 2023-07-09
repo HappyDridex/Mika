@@ -4,12 +4,10 @@ import Main from "./pages/Main";
 import Menu from "./pages/Menu";
 import ModalBookTable from "./components/modals/ModalBookTable";
 import ModalDishCard from "./components/modals/ModalDishCard";
-import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
     return (
         <BrowserRouter>
-            {/* <ScrollToTop /> */}
             <Routes>
                 <Route path="/" element={<DefaultLayout />}>
                     <Route path="/" element={<Main />}>

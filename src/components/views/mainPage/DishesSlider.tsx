@@ -11,15 +11,12 @@ const DishesSlider = () => {
     const dishes = useDishes();
 
     return (
-        <section className="container px-[10%] pt-12 sm:px-[5%] lg:pt-20 xl:px-[10%]">
+        <section className="container px-[10%] pt-20 sm:px-[5%] xl:px-[10%]">
             <div className="flex items-center justify-between text-light">
-                <h2 className="text-3xl font-bold md:text-4xl xl:text-6xl">
+                <h2 className="text-3xl font-bold md:text-4xl xl:text-6xl" onClick={() => navigate("/menu")}>
                     {t("fresh_menu")}
                 </h2>
-                <Link
-                    to="menu"
-                    className="hidden p-3 font-normal sm:block sm:text-xl lg:text-3xl"
-                >
+                <Link to="menu" className="hidden p-3 font-normal sm:block sm:text-xl lg:text-3xl">
                     {t("view_all")}
                 </Link>
                 <button className="block p-3 sm:hidden" onClick={() => navigate("/menu")}>

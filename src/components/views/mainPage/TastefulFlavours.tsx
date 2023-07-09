@@ -8,20 +8,18 @@ const TastefulFlavours = () => {
                 {t("tasteful_flavours")}
             </h2>
             <div className="relative flex justify-between">
-                <div className="absolute left-1/2 top-[10%] w-[90%] max-w-[1030px] -translate-x-1/2  sm:w-[58%]">
-                    <img
-                        className="z-10 h-full w-full object-contain"
-                        src="/images/tasteful-flavours-no-bg.png"
-                        alt="Блюдо"
-                    />
+                <div className="relative -z-10 h-full w-[54%] max-w-[800px] select-none">
+                    <picture>
+                        <source media="(min-width:768px)" srcSet="/images/hand-with-wine.png" />
+                        <img className="w-full" src="/images/hand-with-wine-tablet.png" alt="Брызги" />
+                    </picture>
                 </div>
 
-                <div className="relative -z-10 w-1/2 max-w-[650px] translate-y-[-35%] sm:w-2/5">
-                    <img className="w-full" src="/images/splash-left.png" alt="Брызги" />
-                </div>
-
-                <div className="relative -z-10 w-1/2 max-w-[650px] translate-y-[-25%] sm:w-2/5">
-                    <img className="w-full" src="/images/splash-right.png" alt="Брызги" />
+                <div className="relative -z-10 w-[46%] max-w-[700px] translate-y-[-25%] select-none">
+                    <picture>
+                        <source media="(min-width:768px)" srcSet="/images/splash-right.png" />
+                        <img className="w-full" src="/images/splash-right-tablet.png" alt="Брызги" />
+                    </picture>
                 </div>
             </div>
         </section>

@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ReactNode, useEffect } from "react";
 
 interface IProps {
     children?: ReactNode;
@@ -7,9 +7,16 @@ interface IProps {
 }
 
 const BackgroundWrapper = ({ children, onClick, className }: IProps) => {
+    useEffect(() => {
+        document.body.style.overflow = "hidden";
+        return () => {
+            document.body.style.overflow = "auto";
+        };
+    }, []);
+
     return (
         <div
-            className={`flex justify-center items-start fixed z-50 left-0 top-0 w-full h-full bg-black/80 ${className}`}
+            className={`fixed left-0 top-0 z-50 flex h-full w-full items-start justify-center bg-black/80 ${className}`}
             onClick={onClick}
         >
             {children}
