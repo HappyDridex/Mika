@@ -152,7 +152,7 @@
 
 .react-datepicker__month-container {
     float: left;
-    margin: 10px;
+    margin: 10px 10px 0 10px;
 }
 
 .react-datepicker__year {
@@ -625,6 +625,7 @@
     .react-datepicker__time-name {
         line-height: 1.3rem;
         margin: 0.166rem;
+        padding-bottom: 2px;
     }
 
     .react-datepicker__header {

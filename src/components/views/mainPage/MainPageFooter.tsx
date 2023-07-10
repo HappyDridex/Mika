@@ -48,7 +48,9 @@ const MainPageFooter = () => {
                     <ul>
                         <h4 className="mb-3 text-xs sm:mb-5 sm:text-base md:mb-10 md:text-xl">{t("documents")}</h4>
                         <li className="mb-2 text-[10px] opacity-75 sm:text-xs md:mb-3 md:text-base">
-                            <a href="#">{t("privacy_policy")}</a>
+                            <a href="/policy_2023_mika.pdf" target="_blank">
+                                {t("privacy_policy")}
+                            </a>
                         </li>
                     </ul>
                 </div>

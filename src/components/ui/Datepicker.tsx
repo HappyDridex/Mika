@@ -42,7 +42,7 @@ const Datepicker = ({ className, selectedDate, time, onDateChange, onTimeChange 
         { start: new Date(2000, 0, 1), end: new Date(Date.now() - ONE_DATE_UNIX_TIME) },
     ];
 
-    function getavaliableIntervals() {
+    function getAvaliableIntervals() {
         if (selectedDate && selectedDate.getTime() >= tommorowDate.getTime()) return timeIntervals;
         return timeIntervals.filter((hours) => {
             const startTime = hours[0];
@@ -96,7 +96,7 @@ const Datepicker = ({ className, selectedDate, time, onDateChange, onTimeChange 
                     spaceBetween={0}
                     slidesPerView={"auto"}
                 >
-                    {getavaliableIntervals().map((interval) => (
+                    {getAvaliableIntervals().map((interval) => (
                         <SwiperSlide className="max-w-fit px-[2px]" key={interval[0]}>
                             <DatepickerHour onClick={HandleTime} interval={interval} isActive={interval.join("-") === time} />
                         </SwiperSlide>

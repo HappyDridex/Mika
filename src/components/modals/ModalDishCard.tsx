@@ -27,7 +27,7 @@ const ModalDishCard = () => {
     function onNextDishClick() {
         if (!selectedDish) return;
         const nextDish = dishes.find((dish) => dish.id === selectedDish.id + 1);
-        navigateWithSearchParams(`/menu/${nextDish ? nextDish.id : dishes[0].id}`);
+        navigateWithSearchParams(`../${nextDish ? nextDish.id : dishes[0].id}`);
     }
 
     useEffect(() => {

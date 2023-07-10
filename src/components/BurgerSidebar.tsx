@@ -16,6 +16,7 @@ const BurgerSidebar = ({ className }: IProps) => {
     const { pathname } = useLocation();
     const sidebar = useRef<HTMLElement>(null);
     const instagramLink = process.env.REACT_APP_INSTAGRAM_LINK;
+    const yandexMapsLink = process.env.REACT_APP_YANDEX_MAPS_LINK;
     const { t } = useTranslation();
 
     const navLinks = [
@@ -24,7 +25,7 @@ const BurgerSidebar = ({ className }: IProps) => {
             path: `${pathname === "/" ? "/menu" : "/"}`,
         },
         { title: t("reserve_table"), path: "/booking" },
-        { title: t("how_to_get_to_us"), path: "/" },
+        { title: t("how_to_get_to_us"), path: yandexMapsLink ? yandexMapsLink : "#" },
     ];
 
     const hideSidebar = useCallback((evt: PointerEvent): void => {
@@ -50,13 +51,7 @@ const BurgerSidebar = ({ className }: IProps) => {
             <button className="p-4 text-white" onClick={() => setShowSidebar(true)}>
                 <IconBurgerMenu className="w-[45px] md:w-[75px]" />
             </button>
-            <CSSTransition
-                in={showSidebar}
-                timeout={300}
-                mountOnEnter
-                unmountOnExit
-                classNames="sidebar-appear"
-            >
+            <CSSTransition in={showSidebar} timeout={300} mountOnEnter unmountOnExit classNames="sidebar-appear">
                 <nav
                     ref={sidebar}
                     className="fixed right-0 top-0 z-30 flex h-[100%] max-w-[75%] flex-col overflow-hidden bg-white px-8 pb-14 pt-24 md:px-16"
@@ -71,29 +66,28 @@ const BurgerSidebar = ({ className }: IProps) => {
 
                     <div className="flex flex-1 flex-col flex-wrap items-start gap-6 md:flex-row md:flex-nowrap md:gap-10">
                         <div className="flex flex-col">
-                            <h3 className="mb-4 select-none text-lg text-gray68 md:mb-9 xl:text-xl">
-                                {t("site_navigation")}
-                            </h3>
+                            <h3 className="mb-4 select-none text-lg text-gray68 md:mb-9 xl:text-xl">{t("site_navigation")}</h3>
                             <ul className="grow">
                                 {navLinks.map((link) => (
                                     <li
                                         key={link.title}
                                         className="mb-2 text-xl text-black underline-offset-8 hover:underline md:mb-5 xl:text-3xl"
                                     >
-                                        <Link
-                                            to={link.path}
-                                            className="block w-fit sm:w-max "
-                                        >
-                                            {link.title}
-                                        </Link>
+                                        {typeof link.path === "string" && link.path.includes("yandex") ? (
+                                            <a href={link.path} target="_blank" className="block w-fit sm:w-max ">
+                                                {link.title}
+                                            </a>
+                                        ) : (
+                                            <Link to={link.path} className="block w-fit sm:w-max ">
+                                                {link.title}
+                                            </Link>
+                                        )}
                                     </li>
                                 ))}
                             </ul>
                         </div>
                         <div className="flex flex-col">
-                            <h3 className="mb-4 text-lg text-gray68 md:mb-9 xl:text-xl">
-                                {t("social_networks")}
-                            </h3>
+                            <h3 className="mb-4 text-lg text-gray68 md:mb-9 xl:text-xl">{t("social_networks")}</h3>
                             <a
                                 className="mb-2 block text-xl md:mb-4 xl:text-2xl"
                                 href={instagramLink}
@@ -106,17 +100,11 @@ const BurgerSidebar = ({ className }: IProps) => {
                     </div>
 
                     <footer>
-                        <h4 className="select-none text-lg text-gray68 xl:text-xl">
-                            {t("contact_us")}
-                        </h4>
+                        <h4 className="select-none text-lg text-gray68 xl:text-xl">{t("contact_us")}</h4>
                         <a className="mt-2 block text-xl xl:text-2xl" href="/">
                             mika-tun@gmail.com
                         </a>
-                        <a
-                            className="mt-2 block text-xl xl:text-2xl"
-                            href="tel:+37493129492"
-                            target="_blank"
-                        >
+                        <a className="mt-2 block text-xl xl:text-2xl" href="tel:+37493129492" target="_blank">
                             +374 93129492
                         </a>
                     </footer>
