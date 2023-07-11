@@ -16,6 +16,7 @@ module.exports = {
             gray68: "#686868",
             gray16: "#161616",
             gray2B: "#2B2B2B",
+            grayBB: "#BBBBBB",
         },
     },
     plugins: [],

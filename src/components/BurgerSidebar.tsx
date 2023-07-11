@@ -26,6 +26,7 @@ const BurgerSidebar = ({ className }: IProps) => {
         },
         { title: t("reserve_table"), path: "/booking" },
         { title: t("how_to_get_to_us"), path: yandexMapsLink ? yandexMapsLink : "#" },
+        { title: "О нас", path: "/about" },
     ];
 
     const hideSidebar = useCallback((evt: PointerEvent): void => {

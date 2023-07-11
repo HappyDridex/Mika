@@ -1,15 +1,14 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import logoMikaTun from "../../../assets/svg/logo_mika_tun.svg";
+import logoMikaTun from "../assets/svg/logo_mika_tun.svg";
 
-const MainPageFooter = () => {
-    const navigate = useNavigate();
+const Footer = () => {
     const { t } = useTranslation();
 
     return (
-        <footer className="mt-10 flex flex-col items-center p-5 text-white md:mt-0 md:p-10">
+        <footer className="mt-16 flex flex-col items-center p-5 text-white md:mt-32 md:p-10">
             <div className="flex flex-col items-center">
-                <div className="w-1/2 md:w-1/3">
+                <div className="w-1/2">
                     <img src={logoMikaTun} alt="Logo" />
                 </div>
                 <p className="mt-2 text-sm text-gray68 sm:text-base md:mt-5 md:text-xl">© 2023 Mika Tun. All rights reserved.</p>
@@ -59,4 +58,4 @@ const MainPageFooter = () => {
     );
 };
 
-export default MainPageFooter;
+export default Footer;
