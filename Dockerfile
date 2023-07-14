@@ -10,3 +10,10 @@ RUN npm ci
 
 COPY . .
 RUN npm run build
+
+FROM nginx:stable-alpine
+
+COPY ./nginx.conf /etc/nginx/nginx.conf
+COPY --from=build /usr/data/www/build /usr/data/www/build
+
+CMD [ "nginx", "-g", "daemon off;" ]
