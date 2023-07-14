@@ -5,7 +5,6 @@ services:
     build: .
     volumes:
       - ./:/usr/data/www
-      - ./ssl:/etc/ssl
     ports:
       - 80:80
       - 443:443
