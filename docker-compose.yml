@@ -4,7 +4,8 @@ services:
   frontend:
     build: .
     volumes:
-      - ./ssl:/etc/ssl
+      - ./:/usr/data/www/
+      - ./ssl:/etc/ssl/
     ports:
       - 80:80
       - 443:443
