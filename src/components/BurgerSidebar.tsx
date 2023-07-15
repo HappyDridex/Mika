@@ -18,7 +18,7 @@ const BurgerSidebar = ({ className }: IProps) => {
     const instagramLink = process.env.REACT_APP_INSTAGRAM_LINK;
     const yandexMapsLink = process.env.REACT_APP_YANDEX_MAPS_LINK;
     const { t } = useTranslation();
-    console.log(pathname);
+
     const navLinks = [
         {
             title: `${pathname === "/" ? t("restaurant_menu") : t("main_page")}`,

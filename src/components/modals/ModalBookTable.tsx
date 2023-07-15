@@ -39,7 +39,7 @@ const ModalBookTable = () => {
     const navigate = useNavigate();
     const closeModal = () => {
         setShowForm(false);
-        navigate("..", { relative: "path" });
+        navigate(-1);
     };
     const escapeKey = useEscapeKey(closeModal);
     const telegram = useTelegram();
