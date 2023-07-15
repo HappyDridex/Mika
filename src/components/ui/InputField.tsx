@@ -25,6 +25,7 @@ const InputField = ({ className, value, placeholder, onInput, onlyNumbers, input
                 onInput={(evt) => validateOutputText((evt.target as HTMLInputElement).value)}
                 {...(value === undefined ? {} : { value: inputMask ? `${makeInputMask(value)}` : value })}
                 placeholder={placeholder}
+                autoComplete="off"
                 className={`${className} w-full rounded-full border border-gray68 bg-transparent px-4 py-[8px] text-base text-white outline-none placeholder:text-gray68 focus:border-white md:px-[30px] md:py-[12px] md:text-xl`}
                 type="text"
             />

@@ -1,26 +1,42 @@
-const OurViews = () => {
+import { forwardRef, useEffect } from "react";
+import { useTranslation } from "react-i18next";
+
+interface IProps {
+    ref: any;
+}
+
+const OurViews = ({ props }: any, ref: any) => {
+    const { t } = useTranslation();
+
+    const articles = [
+        {
+            imageUrl: "/images/about/about-image-1.JPG",
+            articleText: t("about_story_1_text"),
+        },
+        { imageUrl: "/images/about/about-image-2.png", articleText: t("about_story_2_text") },
+    ];
+
     return (
-        <section>
+        <section ref={ref}>
             <h2 className="mx-auto mt-5 w-max text-3xl text-white md:text-[40px]">Наши виды</h2>
-            <div className="mt-11 grid grid-cols-1 gap-4 px-[10%] md:grid-cols-3 md:gap-9 md:px-10">
-                <img
-                    className="max-h-auto w-full rounded-2xl object-cover md:max-h-[445px]"
-                    src="/images/about/about-3.png"
-                    alt="Церковь"
-                />
-                <img
-                    className="max-h-auto w-full rounded-2xl object-cover md:max-h-[445px]"
-                    src="/images/about/about-1.png"
-                    alt="Церковь"
-                />
-                <img
-                    className="max-h-auto w-full rounded-2xl object-cover md:max-h-[445px]"
-                    src="/images/about/about-2.png"
-                    alt="Церковь"
-                />
+
+            <div className="mt-8 flex flex-col gap-14 px-[5%] md:mt-10 xl:mt-16">
+                {articles.map((article) => (
+                    <div key={article.imageUrl}>
+                        <p className="whitespace-pre-wrap text-justify text-lg text-grayBB md:text-xl xl:text-2xl">
+                            <img
+                                className="float-none mb-4 mr-0 max-h-[400px] w-full rounded-2xl object-cover md:float-left md:mb-0 md:mr-5 md:w-1/2 xl:max-h-[500px]"
+                                src={article.imageUrl}
+                                alt="Фото к статье"
+                            />
+
+                            {article.articleText}
+                        </p>
+                    </div>
+                ))}
             </div>
         </section>
     );
 };
 
-export default OurViews;
+export default forwardRef(OurViews);

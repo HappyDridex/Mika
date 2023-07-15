@@ -18,14 +18,14 @@ const BurgerSidebar = ({ className }: IProps) => {
     const instagramLink = process.env.REACT_APP_INSTAGRAM_LINK;
     const yandexMapsLink = process.env.REACT_APP_YANDEX_MAPS_LINK;
     const { t } = useTranslation();
-
+    console.log(pathname);
     const navLinks = [
         {
             title: `${pathname === "/" ? t("restaurant_menu") : t("main_page")}`,
             path: `${pathname === "/" ? "/menu" : "/"}`,
         },
-        { title: t("reserve_table"), path: "/booking" },
-        { title: t("how_to_get_to_us"), path: yandexMapsLink ? yandexMapsLink : "#" },
+        { title: t("reserve_table"), path: pathname === "/menu" ? "booking" : "/booking" },
+        { title: t("how_to_get_to_us"), path: yandexMapsLink ? yandexMapsLink : "/" },
         { title: "О нас", path: "/about" },
     ];
 
@@ -72,14 +72,14 @@ const BurgerSidebar = ({ className }: IProps) => {
                                 {navLinks.map((link) => (
                                     <li
                                         key={link.title}
-                                        className="mb-2 text-xl text-black underline-offset-8 hover:underline md:mb-5 xl:text-3xl"
+                                        className="mb-3 text-xl text-black underline-offset-8 hover:underline md:mb-5 xl:text-3xl"
                                     >
-                                        {typeof link.path === "string" && link.path.includes("yandex") ? (
+                                        {link.path.includes("yandex") ? (
                                             <a href={link.path} target="_blank" className="block w-fit sm:w-max ">
                                                 {link.title}
                                             </a>
                                         ) : (
-                                            <Link to={link.path} className="block w-fit sm:w-max ">
+                                            <Link relative="path" to={link.path} className="block w-fit sm:w-max ">
                                                 {link.title}
                                             </Link>
                                         )}

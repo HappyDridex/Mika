@@ -15,7 +15,7 @@ export const useTelegram = () => {
         let message = "⚡НОВАЯ БРОНЬ⚡";
         for (let key in orderRuLayout) {
             orderRuLayout[key] = formData[orderRuLayout[key]];
-            message += `\n${key}: ${orderRuLayout[key]}`;
+            message += `\n${key}: ${key === "Телефон" ? `+${orderRuLayout[key]}` : orderRuLayout[key]}`;
         }
 
         const url = "https://api.telegram.org/bot" + telegram_bot_id + "/sendMessage";
