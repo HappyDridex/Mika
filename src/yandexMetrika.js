@@ -16,6 +16,7 @@ export const yandexMetrika = () => {
     window.ym(process.env.REACT_APP_YANDEX_METRICA_KEY, "init", {
         clickmap: true,
         trackLinks: true,
+        webvisor: true,
         accurateTrackBounce: true,
     });
 };
