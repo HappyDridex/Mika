@@ -18,7 +18,7 @@ const OurViews = ({ props }: any, ref: any) => {
 
     return (
         <section ref={ref}>
-            <h2 className="mx-auto mt-5 w-max text-3xl text-white md:text-[40px]">Наши виды</h2>
+            <h2 className="mx-auto mt-5 w-max text-3xl text-white md:text-[40px]">{t("our_views")}</h2>
 
             <div className="mt-8 flex flex-col gap-14 px-[5%] md:mt-10 xl:mt-16">
                 {articles.map((article) => (

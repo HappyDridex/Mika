@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import AboutPreview from "../components/views/About/AboutPreview";
 import OurViews from "../components/views/About/OurViews";
+import History from "../components/views/About/History";
 
 const About = () => {
     const viewsRef = useRef<HTMLElement>(null);
@@ -13,6 +14,7 @@ const About = () => {
         <main>
             <AboutPreview onPreviewButtonClick={scrollToViews} />
             <OurViews ref={viewsRef} />
+            <History />
         </main>
     );
 };

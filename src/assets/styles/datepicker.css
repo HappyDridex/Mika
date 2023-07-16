@@ -287,10 +287,10 @@
 .react-datepicker__month-text--keyboard-selected,
 .react-datepicker__quarter-text--keyboard-selected,
 .react-datepicker__year-text--keyboard-selected {
-    border-radius: 0.3rem;
-    background-color: #ffffff;
+    /* border-radius: 0.3rem;
+    background-color: #ffffff93;
     color: #000000;
-    border: none;
+    border: none; */
 }
 
 .react-datepicker__day--in-selecting-range:not(

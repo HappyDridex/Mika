@@ -1,5 +1,5 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { forwardRef, useMemo, useRef } from "react";
+import { forwardRef, useRef } from "react";
 import DatePicker from "react-datepicker";
 import { useTranslation } from "react-i18next";
 import ru from "date-fns/locale/ru";
@@ -65,7 +65,7 @@ const Datepicker = ({ className, selectedDate, time, onDateChange, onTimeChange 
         onTimeChange(time);
     }
 
-    const InputButton = forwardRef(({ onClick }: any) => (
+    const InputButton = forwardRef(({ onClick }: any, ref) => (
         <button
             className={`${
                 selectedDate ? "border border-white text-white" : "text-gray68"

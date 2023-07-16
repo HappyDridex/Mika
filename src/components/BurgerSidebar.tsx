@@ -26,7 +26,7 @@ const BurgerSidebar = ({ className }: IProps) => {
         },
         { title: t("reserve_table"), path: pathname === "/menu" ? "booking" : "/booking" },
         { title: t("how_to_get_to_us"), path: yandexMapsLink ? yandexMapsLink : "/" },
-        { title: "О нас", path: "/about" },
+        { title: t("about_us"), path: "/about" },
     ];
 
     const hideSidebar = useCallback((evt: PointerEvent): void => {
@@ -75,7 +75,12 @@ const BurgerSidebar = ({ className }: IProps) => {
                                         className="mb-3 text-xl text-black underline-offset-8 hover:underline md:mb-5 xl:text-3xl"
                                     >
                                         {link.path.includes("yandex") ? (
-                                            <a href={link.path} target="_blank" className="block w-fit sm:w-max ">
+                                            <a
+                                                href={link.path}
+                                                target="_blank"
+                                                rel="noreferrer noopener"
+                                                className="block w-fit sm:w-max "
+                                            >
                                                 {link.title}
                                             </a>
                                         ) : (
@@ -93,7 +98,7 @@ const BurgerSidebar = ({ className }: IProps) => {
                                 className="mb-2 block text-xl md:mb-4 xl:text-2xl"
                                 href={instagramLink}
                                 target="_blank"
-                                rel="noreferrer"
+                                rel="noreferrer noopener"
                             >
                                 Instagram
                             </a>
@@ -103,9 +108,14 @@ const BurgerSidebar = ({ className }: IProps) => {
                     <footer>
                         <h4 className="select-none text-lg text-gray68 xl:text-xl">{t("contact_us")}</h4>
                         <a className="mt-2 block text-xl xl:text-2xl" href="/">
-                            mika-tun@gmail.com
+                            mikatunohanavan@gmail.com
                         </a>
-                        <a className="mt-2 block text-xl xl:text-2xl" href="tel:+37493129492" target="_blank">
+                        <a
+                            className="mt-2 block text-xl xl:text-2xl"
+                            href="tel:+37493129492"
+                            target="_blank"
+                            rel="noreferrer noopener"
+                        >
                             +374 93129492
                         </a>
                     </footer>

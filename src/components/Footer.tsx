@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import logoMikaTun from "../assets/svg/logo_mika_tun.svg";
+import IconLogoMikaTun from "../components/icons/IconLogoMikaTun";
 
 const Footer = () => {
     const { t } = useTranslation();
@@ -9,7 +10,7 @@ const Footer = () => {
         <footer className="mt-16 flex flex-col items-center p-5 text-white md:mt-32 md:p-10">
             <div className="flex flex-col items-center">
                 <div className="w-1/2">
-                    <img src={logoMikaTun} alt="Logo" />
+                    <IconLogoMikaTun className="w-full" />
                 </div>
                 <p className="mt-2 text-sm text-gray68 sm:text-base md:mt-5 md:text-xl">© 2023 Mika Tun. All rights reserved.</p>
             </div>
@@ -25,7 +26,7 @@ const Footer = () => {
                             <Link to="/booking">{t("reserve_table")}</Link>
                         </li>
                         <li className="mb-2 text-[10px] opacity-75 sm:text-xs md:mb-3 md:text-base">
-                            <a target="_blank" href={`${process.env.REACT_APP_YANDEX_MAPS_LINK}`}>
+                            <a target="_blank" rel="noreferrer noopener" href={`${process.env.REACT_APP_YANDEX_MAPS_LINK}`}>
                                 {t("how_to_get_to_us")}
                             </a>
                         </li>
@@ -36,7 +37,7 @@ const Footer = () => {
                     <ul>
                         <h4 className="mb-3 text-xs sm:mb-5 sm:text-base md:mb-10 md:text-xl">{t("social_networks")}</h4>
                         <li className="mb-2 text-[10px] opacity-75 sm:text-xs md:mb-3 md:text-base">
-                            <a target="_blank" href={`${process.env.REACT_APP_INSTAGRAM_LINK}`}>
+                            <a target="_blank" rel="noreferrer noopener" href={`${process.env.REACT_APP_INSTAGRAM_LINK}`}>
                                 Instagram
                             </a>
                         </li>
@@ -47,7 +48,7 @@ const Footer = () => {
                     <ul>
                         <h4 className="mb-3 text-xs sm:mb-5 sm:text-base md:mb-10 md:text-xl">{t("documents")}</h4>
                         <li className="mb-2 text-[10px] opacity-75 sm:text-xs md:mb-3 md:text-base">
-                            <a href="/policy_2023_mika.pdf" target="_blank">
+                            <a href="/policy_2023_mika.pdf" target="_blank" rel="noreferrer noopener">
                                 {t("privacy_policy")}
                             </a>
                         </li>

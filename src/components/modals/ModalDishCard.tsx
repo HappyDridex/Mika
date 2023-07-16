@@ -21,7 +21,7 @@ const ModalDishCard = () => {
     const { t } = useTranslation();
     const dishes = useDishes();
     const selectedDish = dishes.find((dish) => {
-        if (params.dish) return dish.id === +params?.dish;
+        return params.dish ? dish.id === +params?.dish : false;
     });
 
     function onNextDishClick() {
