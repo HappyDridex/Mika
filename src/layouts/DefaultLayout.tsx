@@ -1,6 +1,7 @@
 import { Outlet } from "react-router-dom";
 import BurgerSidebar from "../components/BurgerSidebar";
 import SwitchLanguageDropDown from "../components/ui/SwitchLanguageDropDown";
+import CallUsButton from "../components/ui/CallUsButton";
 import Footer from "../components/Footer";
 
 const DefaultLayout = () => {
@@ -11,6 +12,7 @@ const DefaultLayout = () => {
                 <BurgerSidebar className="mt-0" />
             </div>
             <Outlet />
+            <CallUsButton className="fixed bottom-6 right-3 z-50" />
             <Footer />
         </>
     );

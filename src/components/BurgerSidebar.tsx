@@ -67,7 +67,9 @@ const BurgerSidebar = ({ className }: IProps) => {
 
                     <div className="flex flex-1 flex-col flex-wrap items-start gap-6 md:flex-row md:flex-nowrap md:gap-10">
                         <div className="flex flex-col">
-                            <h3 className="mb-4 select-none text-lg text-gray68 md:mb-9 xl:text-xl">{t("site_navigation")}</h3>
+                            <h3 className="mb-4 select-none text-lg text-gray68 md:mb-9 xl:text-xl">
+                                {t("site_navigation")}
+                            </h3>
                             <ul className="grow">
                                 {navLinks.map((link) => (
                                     <li
@@ -107,15 +109,10 @@ const BurgerSidebar = ({ className }: IProps) => {
 
                     <footer>
                         <h4 className="select-none text-lg text-gray68 xl:text-xl">{t("contact_us")}</h4>
-                        <a className="mt-2 block text-xl xl:text-2xl" href="/">
+                        <a className="mt-2 block text-lg xl:text-xl" href="mailto:mikatunohanavan@gmail.com">
                             mikatunohanavan@gmail.com
                         </a>
-                        <a
-                            className="mt-2 block text-xl xl:text-2xl"
-                            href="tel:+37493129492"
-                            target="_blank"
-                            rel="noreferrer noopener"
-                        >
+                        <a className="mt-2 block text-lg xl:text-xl" href="tel:+37493129492">
                             +374 93129492
                         </a>
                     </footer>
