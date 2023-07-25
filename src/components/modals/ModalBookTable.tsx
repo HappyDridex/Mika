@@ -80,10 +80,10 @@ const ModalBookTable = () => {
         <CSSTransition in={showForm} timeout={200} classNames="from-transparent">
             {() =>
                 showForm && (
-                    <BackgroundWrapper className="px-[5%] md:px-0">
+                    <BackgroundWrapper className="overflow-y-auto px-[5%] md:px-0">
                         {!formIsSent && (
                             <form
-                                className="relative mt-[5vh] h-fit w-full rounded-3xl bg-gray16 px-5 py-[22px] md:w-fit md:px-[180px] md:py-[36px]"
+                                className="relative mb-[500px] mt-[8vh] h-fit w-full rounded-3xl bg-gray16 px-5 py-[22px] md:w-fit md:px-[180px] md:py-[36px]"
                                 onSubmit={onFormSubmit}
                                 onClick={(e) => e.stopPropagation()}
                             >
