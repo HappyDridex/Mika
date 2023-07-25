@@ -83,16 +83,24 @@ const ModalBookTable = () => {
                     <BackgroundWrapper className="px-[5%] md:px-0">
                         {!formIsSent && (
                             <form
-                                className="relative mt-[10vh] h-fit w-full rounded-3xl bg-gray16 px-5 py-[22px] md:w-fit md:px-[180px] md:py-[36px]"
+                                className="relative mt-[5vh] h-fit w-full rounded-3xl bg-gray16 px-5 py-[22px] md:w-fit md:px-[180px] md:py-[36px]"
                                 onSubmit={onFormSubmit}
                                 onClick={(e) => e.stopPropagation()}
                             >
-                                <h2 className="mt-6 text-center text-2xl text-white md:text-3xl">{t("table_reservation")}</h2>
-                                <ButtonRoundedSmall onClick={closeModal} className="absolute right-3 top-3 md:right-4 md:top-6">
+                                <h2 className="mt-6 text-center text-2xl text-white md:text-3xl">
+                                    {t("table_reservation")}
+                                </h2>
+                                <ButtonRoundedSmall
+                                    onClick={closeModal}
+                                    className="absolute right-3 top-3 md:right-4 md:top-6"
+                                >
                                     <IconCross />
                                 </ButtonRoundedSmall>
                                 <div className="mt-[30px] flex flex-col md:mt-[47px]">
-                                    <InputField onInput={(text) => handleInputText(text, "name")} placeholder={t("your_name")} />
+                                    <InputField
+                                        onInput={(text) => handleInputText(text, "name")}
+                                        placeholder={t("your_name")}
+                                    />
                                     <InputField
                                         onInput={(text) => handleInputText(text, "phone")}
                                         value={formData.phone}
