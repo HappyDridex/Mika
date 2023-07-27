@@ -44,6 +44,7 @@ const ModalBookTable = () => {
     const escapeKey = useEscapeKey(closeModal);
     const telegram = useTelegram();
     const { t } = useTranslation();
+    const inputMask = "+";
 
     const submitIsDisabled = useMemo(() => {
         const formDataEntries = Object.entries(formData);
@@ -61,9 +62,15 @@ const ModalBookTable = () => {
     }
 
     async function onFormSubmit(evt: React.FormEvent) {
+        evt.preventDefault();
+
+        const phoneRegex = /^(\+374|\+7|\+\d{1,3})\d{10}$/;
+        if (!phoneRegex.test(inputMask + formData.phone)) {
+            alert("Пожалуйста, введите правильный номер телефона.");
+            return;
+        }
         const { name, persons, phone, time } = formData;
         if (!fieldsAreFilled(name, persons, phone, time) || !formData.date) return;
-        evt.preventDefault();
         await telegram.sendForm({
             ...formData,
             date: fromDateToDDMMYYYY(formData.date, "."),
@@ -105,7 +112,7 @@ const ModalBookTable = () => {
                                         onInput={(text) => handleInputText(text, "phone")}
                                         value={formData.phone}
                                         onlyNumbers
-                                        inputMask="+"
+                                        inputMask={inputMask}
                                         placeholder={t("phone_number")}
                                         className="mt-[18px] md:mt-[26px]"
                                     />
