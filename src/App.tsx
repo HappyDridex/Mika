@@ -1,5 +1,7 @@
+import { HelmetProvider } from "react-helmet-async";
 import { useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+
 import DefaultLayout from "./layouts/DefaultLayout";
 import Main from "./pages/Main";
 import Menu from "./pages/Menu";
@@ -14,21 +16,23 @@ function App() {
     }, []);
 
     return (
-        <BrowserRouter>
-            <Routes>
-                <Route path="/" element={<DefaultLayout />}>
-                    <Route path="/" element={<Main />}>
-                        <Route path="booking" element={<ModalBookTable />} />
-                        <Route path="/:dish" element={<ModalDishCard />} />
+        <HelmetProvider>
+            <BrowserRouter>
+                <Routes>
+                    <Route path="/" element={<DefaultLayout />}>
+                        <Route path="/" element={<Main />}>
+                            <Route path="booking" element={<ModalBookTable />} />
+                            <Route path="/:dish" element={<ModalDishCard />} />
+                        </Route>
+                        <Route path="menu" element={<Menu />}>
+                            <Route path="booking" element={<ModalBookTable />} />
+                            <Route path=":dish" element={<ModalDishCard />} />
+                        </Route>
+                        <Route path="about" element={<About />} />
                     </Route>
-                    <Route path="menu" element={<Menu />}>
-                        <Route path="booking" element={<ModalBookTable />} />
-                        <Route path=":dish" element={<ModalDishCard />} />
-                    </Route>
-                    <Route path="about" element={<About />} />
-                </Route>
-            </Routes>
-        </BrowserRouter>
+                </Routes>
+            </BrowserRouter>
+        </HelmetProvider>
     );
 }
 

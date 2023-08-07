@@ -18,6 +18,11 @@ module.exports = {
             gray2B: "#2B2B2B",
             grayBB: "#BBBBBB",
         },
+        extend: {
+            aspectRatio: {
+                "10/7": "10 / 7",
+            },
+        },
     },
     plugins: [],
 };
