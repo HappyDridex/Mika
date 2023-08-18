@@ -1,3 +1,9 @@
-# https://www.robotstxt.org/robotstxt.html
+User-agent: Yandex
+Disallow: /index.php
+
+User-agent: GoogleBot
+Disallow: /index.php
+
 User-agent: *
-Disallow:
+Disallow: /index.php
+Sitemap: https://mikatun.online/sitemap.xml

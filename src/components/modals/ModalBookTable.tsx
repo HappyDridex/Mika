@@ -42,7 +42,7 @@ const ModalBookTable = () => {
         setShowForm(false);
         navigate(-1);
     };
-    const escapeKey = useEscapeKey(closeModal);
+    useEscapeKey(closeModal);
     const telegram = useTelegram();
     const { t } = useTranslation();
     const inputMask = "+";
@@ -93,9 +93,9 @@ const ModalBookTable = () => {
     return (
         <>
             <SEO
-                title="Бронирование стола"
-                description="На данной странице можно забронировать стол на удобное время"
-                keywords="Mika tun, Мика тун, ресторан, бронирование, стола, стол, забронировать"
+                title="Забронировать стол в загородном ресторане Mika Tun близ Еревана"
+                description="Хотите забронировать стол в загородном ресторане близ Еревана? Здесь Вы можете забронировать столик в ресторане Мика Тун в Оганаване, недалеко от Еревана."
+                keywords="забронировать стол в ресторане в ереване, ресторан загородный в ереване, забронировать столик в ресторане"
             />
 
             <CSSTransition in={showForm} timeout={200} classNames="from-transparent">
