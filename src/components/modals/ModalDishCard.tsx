@@ -55,13 +55,16 @@ const ModalDishCard = () => {
                             </div>
 
                             <div className="relative flex w-full shrink-0 flex-col bg-gray16 p-6 pr-12 md:w-[55%]">
-                                <h3 className="mt-1 text-xl text-white md:mt-5 md:text-2xl xl:text-4xl">{selectedDish?.name}</h3>
+                                <h3 className="mt-1 text-xl text-white md:mt-5 md:text-2xl xl:text-4xl">
+                                    {selectedDish?.name}
+                                </h3>
                                 <p className="mt-1 text-base text-white md:mt-5 md:text-lg"></p>
-                                <div className="flex-1">
+                                {/* price is hidden now */}
+                                {/* <div className="flex-1">
                                     <span className="mt-2 block w-fit rounded-[20px] bg-gray2B px-3 py-1 text-lg md:mt-5 md:rounded-[54px] md:px-7 md:py-3 xl:text-2xl">
                                         {selectedDish?.price}
                                     </span>
-                                </div>
+                                </div> */}
                                 <div
                                     className="absolute right-4 top-0 flex h-[25%] cursor-pointer  items-center hover:scale-110 md:top-1/2 md:h-1/2 md:-translate-y-1/2"
                                     onClick={onNextDishClick}
