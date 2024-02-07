@@ -32,9 +32,7 @@ export const useTelegram = () => {
         };
 
         const res = await fetch(url, options);
-        console.log("hello");
         const data = await res.json();
-        console.log(data);
 
         return false;
     };
